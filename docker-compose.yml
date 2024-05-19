@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:latest  # Use the latest MySQL image
+    restart: always      # Ensure the container restarts on failures
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # root root
+      MYSQL_DATABASE: usercrud         # Optionally, create a database on startup
+
+    ports:
+      - '3306:3306'  # Map host port 3306 to the container's MySQL port
+    volumes:
+      - db_data:/var/lib/mysql  # Create a volume for persistent data
+
+volumes:
+  db_data:
